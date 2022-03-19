@@ -16,6 +16,8 @@ public class UtilsTest {
         assertFalse(hasSameDigits(123,456));
         assertFalse(hasSameDigits(112,122));
         assertFalse(hasSameDigits(311,331));
+        assertFalse(hasSameDigits(1234,1456));
+        assertFalse(hasSameDigits(999111,999000));
     }
 
     @Test
@@ -23,6 +25,8 @@ public class UtilsTest {
         assertTrue(hasSameDigits(123,321));
         assertTrue(hasSameDigits(221,122));
         assertTrue(hasSameDigits(221,122));
+        assertTrue(hasSameDigits(1111,1111));
+        assertTrue(hasSameDigits(456976,649765));
     }
 
 }

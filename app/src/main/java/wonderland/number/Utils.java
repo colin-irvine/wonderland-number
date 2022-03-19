@@ -4,25 +4,19 @@ import java.util.*;
 
 public class Utils {
     public static boolean hasSameDigits(int m, int n){
-        Map<Integer, Integer> mDigitMap;
-        Map<Integer, Integer> nDigitMap;
         Iterator<Integer> digitIterator;
 
         if(getNumberOfDigits(m) != getNumberOfDigits(n))
             return false;
 
-        mDigitMap = mapDigitCount(m);
-        nDigitMap = mapDigitCount(n);
-
-        if(hasDifferentKeys(mDigitMap, nDigitMap)){
+        if(hasDifferentKeys(mapDigitCount(m), mapDigitCount(n))){
             return false;
         }
 
-        digitIterator = getIteratorFromMap(mDigitMap);
+        digitIterator = getIteratorFromMap(mapDigitCount(m));
 
-        // can we make this stateless?
         while(digitIterator.hasNext()){
-            if(isCurrentDigitCountDifferent(mDigitMap, nDigitMap, digitIterator.next()))
+            if(isCurrentDigitCountDifferent(mapDigitCount(m), mapDigitCount(n), digitIterator.next()))
                 return false;
         }
         return true;
