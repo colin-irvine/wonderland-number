@@ -3,8 +3,37 @@
  */
 package wonderland.number;
 
+import static wonderland.number.Utils.*;
+
 public class App {
     public static void main(String[] args) {
+        printTitle();
+        printWonderlandNumberResult();
 
+    }
+
+    public static void printTitle(){
+        System.out.println("Calculating wonderland number...");
+    }
+
+    public static void printWonderlandNumberResult(){
+        System.out.println(String.format("The alledged number is... %d", generateAndTest()));
+    }
+
+    public static int generateAndTest(){
+        for(int i = 100000; i < 1000000 ; ++i){
+            if(isWonderlandNumber(i))
+                return i;
+        }
+        return 0;
+    }
+
+    public static boolean isWonderlandNumber(int n){
+        for(int i = 2; i < 7 ; ++i) {
+            if (!hasSameDigits(n, n * i)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
